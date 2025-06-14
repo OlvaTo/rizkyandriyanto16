@@ -1,0 +1,751 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f6f6;
+  min-height: 100vh;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(0, 90, 255, 0.12);
+  filter: blur(150px);
+  top: 8%;
+  left: 5%;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255, 50, 70, 0.1);
+  filter: blur(150px);
+  bottom: 5%;
+  right: 10%;
+  z-index: 0;
+}
+
+nav {
+  position: fixed;
+  top: 10px;
+  right: 0px;
+  padding: 100px;
+  padding-top: 10px;
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 150px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  font-family: Poppins;
+  font-size: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+.logo {
+  position: fixed;
+  padding: 2vh;
+  margin: 1vh;
+  z-index: 10;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.Homepage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.Text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e1e1e;
+}
+
+.Text h1 {
+  font-size: 100px;
+  padding-top: 220px;
+  padding-left: 120px;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s ease forwards;
+}
+
+.Text p {
+  font-size: 18px;
+  padding-left: 120px;
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Konten {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 320px;
+  padding-top: 180px;
+  position: relative;
+}
+
+.Konten button {
+  height: 100px;
+  width: 100px;
+  border: 2px solid #000;
+  background-color: transparent;
+  font-size: 38px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 3s ease forwards;
+  position: relative;
+  z-index: 2;
+}
+
+.Konten button:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.Konten p {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: #1e1e1e;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 0;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  position: relative;
+}
+
+.Konten p::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.9);
+}
+
+.Konten button:hover + p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Konten:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Quote {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.Quote p {
+  text-align: center;
+  font-size: 36px;
+  position: relative;
+  z-index: 2;
+  color: #1e1e1e;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  border-radius: 15px;
+  margin: 0 auto 20px auto;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Quote h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  color: #1e1e1e;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.Quote img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.Profile {
+  margin-top: 100px;
+  padding: 40px;
+  font-family: Poppins;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.Profile h1 {
+  font-size: 100px;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s ease forwards;
+  text-align: left;
+}
+
+.Profile img {
+  height: 550px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.about-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 40px;
+  min-height: 100vh;
+  gap: 10px;
+}
+
+.About-me {
+  max-width: 850px;
+  width: 60%;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.About-me h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.About-me p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.Sosial {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Sosial img {
+  height: 40px;
+  padding: 2px;
+}
+
+.Sosial a {
+  transition-duration: 0.1s;
+}
+
+.Sosial a:hover {
+  transform: translateY(-10px);
+}
+
+/* KEYBOARD SKILLS STYLES - UPDATED */
+.keyboard-container {
+  background: linear-gradient(145deg, #1a1a1a, #000000);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s ease;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.keyboard-container:active {
+  cursor: grabbing;
+}
+
+.keyboard-container.dragging {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.keyboard-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4caf50, #2196f3, #ff9800, #e91e63);
+  border-radius: 20px 20px 0 0;
+}
+
+.skills-keyboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.key-button {
+  position: relative;
+  background: linear-gradient(145deg, #333333, #1a1a1a);
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 25px 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+  animation: keyFloatIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.key-button:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.key-button:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.key-button:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.key-button:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes keyFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.key-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, #404040, #2a2a2a);
+  border-color: #555;
+}
+
+.key-button:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  transition: all 0.1s;
+}
+
+.key-button img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) brightness(1.1);
+  transition: all 0.2s ease;
+}
+
+.key-button:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) brightness(1.2);
+}
+
+.key-button:active img {
+  transform: scale(0.95);
+}
+
+.key-button::after {
+  content: attr(data-key);
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbb;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.8;
+}
+
+/* Typing indicator - hidden untuk menghilangkan animasi dot */
+.typing-indicator {
+  display: none;
+}
+
+/* Drag instruction text */
+.drag-instruction {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-top: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* MOBILE RESPONSIVE STYLES */
+@media screen and (max-width: 768px) {
+  body::before,
+  body::after {
+    width: 200px;
+    height: 200px;
+    filter: blur(80px);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: rgba(246, 246, 246, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  nav ul {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    font-size: 18px;
+  }
+
+  .logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 0;
+    margin: 0;
+    z-index: 15;
+  }
+
+  .logo img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .Homepage {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .Text {
+    order: 1;
+    width: 100%;
+  }
+
+  .Text h1 {
+    font-size: 60px;
+    padding-top: 100px;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .Text p {
+    font-size: 16px;
+    padding-left: 0;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .Konten {
+    order: 2;
+    padding-right: 0;
+    padding-top: 50px;
+    width: 100%;
+  }
+
+  .Konten button {
+    height: 80px;
+    width: 80px;
+    font-size: 30px;
+  }
+
+  .Konten p {
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+    max-width: 200px;
+  }
+
+  .Quote {
+    margin-top: 100px;
+    padding: 20px;
+    min-height: 80vh;
+  }
+
+  .Quote p {
+    font-size: 20px;
+    padding: 20px 25px;
+    max-width: 90%;
+    line-height: 1.4;
+  }
+
+  .Quote h1 {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .Quote img {
+    opacity: 0.3;
+  }
+
+  .Profile {
+    margin-top: 100px;
+    padding: 20px;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .Profile h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .Profile img {
+    height: 300px;
+    width: auto;
+    order: 1;
+    max-width: 100%;
+  }
+
+  .about-container {
+    padding: 20px;
+    justify-content: center;
+    display: grid;
+    gap: 10px;
+  }
+
+  .About-me {
+    width: 100%;
+    max-width: none;
+  }
+
+  .About-me h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .keyboard-container {
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  .skills-keyboard {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .key-button {
+    padding: 20px 15px;
+  }
+
+  .key-button img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Text h1 {
+    font-size: 48px;
+  }
+
+  .Text p {
+    font-size: 14px;
+  }
+
+  .Quote {
+    min-height: 70vh;
+    padding: 15px;
+  }
+
+  .Quote p {
+    font-size: 18px;
+    padding: 15px 20px;
+    max-width: 95%;
+  }
+
+  .Quote h1 {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .Quote img {
+    opacity: 0.25;
+  }
+
+  .Profile h1 {
+    font-size: 32px;
+  }
+
+  .Profile img {
+    height: 250px;
+  }
+
+  .Konten button {
+    height: 70px;
+    width: 70px;
+    font-size: 24px;
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  nav li {
+    font-size: 16px;
+  }
+
+  .about-container {
+    padding: 10px;
+  }
+
+  .About-me {
+    padding: 20px 15px;
+  }
+
+  .About-me h2 {
+    font-size: 1.8rem;
+  }
+
+  .About-me p {
+    font-size: 1rem;
+  }
+
+  .keyboard-container {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .skills-keyboard {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .key-button {
+    padding: 15px 10px;
+  }
+
+  .key-button img {
+    height: 35px;
+    width: 35px;
+  }
+}
