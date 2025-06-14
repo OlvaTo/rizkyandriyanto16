@@ -344,7 +344,7 @@ nav a:hover {
   transform: translateY(-10px);
 }
 
-/* KEYBOARD SKILLS STYLES - UPDATED */
+
 .keyboard-container {
   background: linear-gradient(145deg, #1a1a1a, #000000);
   border-radius: 20px;
@@ -476,12 +476,10 @@ nav a:hover {
   opacity: 0.8;
 }
 
-/* Typing indicator - hidden untuk menghilangkan animasi dot */
 .typing-indicator {
   display: none;
 }
 
-/* Drag instruction text */
 .drag-instruction {
   text-align: center;
   color: #888;
@@ -490,7 +488,6 @@ nav a:hover {
   font-family: "Poppins", sans-serif;
 }
 
-/* MOBILE RESPONSIVE STYLES */
 @media screen and (max-width: 768px) {
   body::before,
   body::after {
