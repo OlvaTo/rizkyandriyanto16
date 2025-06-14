@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portofolio</title>
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="Wrapper">
+      <div class="logo">
+        <a href=""><img src="MyLogo1.png" alt="" /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#homepage">Home</a></li>
+          <li><a href="#profile">Profile</a></li>
+        </ul>
+      </nav>
+
+      <div id="homepage">
+      <div class="Homepage">
+        <div class="Text">
+          <h1>Hello</h1>
+          <p>
+            Welcome to my portfolio. I’m currently learning and growing in the
+            world of web development and design. This website showcases my
+            journey, the skills I’m developing, and the projects I’ve worked on
+            so far. Thank you for visiting!
+          </p>
+        </div>
+    
+
+        <div class="Konten">
+          <p>You want know me?</p>
+          <a href="#profile">
+            <button>?</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+      <div class="Quote">
+        <p>
+          "Sometimes it's necessary to fight for something more important than
+          your own dreams!,<br />
+          also then hard work is what makes dreams come true!"
+        </p>
+        <h1>- Might Guy</h1>
+        <img src="image-from-rawpixel-id-3850900-png.png" alt="">
+      </div>
+  
+<div id="profile">
+      <section class="Profile">
+        
+        <div class="about">         
+            <img src="Rizky.jpg" alt="" />
+            <h1>
+              Hi,<br />
+              My Name Is<br />
+              Rizky Andriyanto
+            </h1>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<div class="about-container">
+    <section class="About-me"> 
+      <h2>About Me</h2>
+      <p>
+        I was born in Tegal on November 13, 2002. Currently, I am passionate about web development 
+        and continuously learning new technologies to enhance my skills in creating modern, 
+        responsive websites.
+      </p>
+      
+      <p>
+        As a dedicated learner, I enjoy exploring different aspects of web development, from 
+        front-end design to back-end functionality. I believe in the power of clean code and 
+        user-centered design to create meaningful digital experiences.
+      </p>
+      
+      <p>
+        When I'm not coding, I love to read about the latest web technologies, work on personal 
+        projects, and connect with fellow developers in the community. I'm always eager to take 
+        on new challenges and grow both personally and professionally.
+      </p>
+      <div class="Sosial">
+       <a href="https://www.instagram.com/zwyanee/" target="_blank"><img src="instagram (2).png" alt=""></a>
+       <a href="https://github.com/OlvaTo" target="_blank"><img src="github-sign.png" alt=""></a>
+    </div>
+   </section>
+   <section class="About-me">
+    <h2>My Skills Programming Languages</h2>
+    <div class="keyboard-container" id="keyboard">
+        <div class="skills-keyboard">
+            <button class="key-button" data-key="J" onclick="handleKeyClick('Java')">
+             <img src="java (2).png" alt="">
+            </button>
+            <button class="key-button" data-key="C++" onclick="handleKeyClick('C++')">
+              <img src="c- (1).png" alt="">
+            </button>
+            <button class="key-button" data-key="H" onclick="handleKeyClick('HTML')">
+              <img src="html-5.png" alt="">
+            </button>
+            <button class="key-button" data-key="C" onclick="handleKeyClick('CSS')">
+               <img src="css-3.png" alt="">
+            </button>
+        </div>
+        <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    </div>
+</section>
+</div>
+</div>
+
+<script>
+// Handle key click
+function handleKeyClick(language) {
+console.log(`${language} key pressed!`);
+}
+
+// Drag functionality
+let isDragging = false;
+let startX;
+let scrollLeft;
+let currentX = 0;
+
+const keyboard = document.getElementById('keyboard');
+
+keyboard.addEventListener('mousedown', (e) => {
+isDragging = true;
+keyboard.classList.add('dragging');
+startX = e.pageX - keyboard.offsetLeft;
+scrollLeft = currentX;
+keyboard.style.cursor = 'grabbing';
+e.preventDefault();
+});
+
+document.addEventListener('mousemove', (e) => {
+if (!isDragging) return;
+e.preventDefault();
+const x = e.pageX - keyboard.offsetLeft;
+const walk = (x - startX) * 1;
+currentX = scrollLeft + walk;
+
+const maxMove = 100;
+currentX = Math.max(-maxMove, Math.min(maxMove, currentX));
+
+keyboard.style.transform = `translateX(${currentX}px)`;
+});
+
+document.addEventListener('mouseup', () => {
+if (isDragging) {
+    isDragging = false;
+    keyboard.classList.remove('dragging');
+    keyboard.style.cursor = 'grab';
+    
+    if (Math.abs(currentX) < 30) {
+        currentX = 0;
+        keyboard.style.transition = 'transform 0.3s ease';
+        keyboard.style.transform = `translateX(0px)`;
+        
+        setTimeout(() => {
+            keyboard.style.transition = '';
+        }, 300);
+    }
+}
+});
+
+// Enhanced parallax effect
+window.addEventListener('scroll', () => {
+const scrolled = window.pageYOffset;
+const rate = scrolled * -0.5;
+
+// Apply parallax to profile section
+const profileSection = document.querySelector('.Profile');
+if (profileSection) {
+    profileSection.style.backgroundPosition = `center ${rate}px`;
+}
+
+// Apply parallax to quote section
+const quoteSection = document.querySelector('.Quote');
+if (quoteSection) {
+    quoteSection.style.backgroundPosition = `center ${rate * 0.3}px`;
+}
+});
+
+// Smooth scrolling for navigation
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+});
+});
+
+// Dynamic greeting
+function updateGreeting() {
+const hour = new Date().getHours();
+const greetingElement = document.querySelector('.Text h1');
+
+if (greetingElement) {
+    let hegreeting = 'Hello';
+    
+    if (hour < 12) {
+        greeting = 'Good Morning';
+    } else if (hour < 18) {
+        greeting = 'Good Afternoon';
+    } else {
+        greeting = 'Good Evening';
+    }
+    
+    greetingElement.textContent = hegreeting + ' ' + greeting;
+}
+}
+
+// Initialize
+updateGreeting();
+
+console.log(`
+🚀 Welcome to Rizky's Portfolio!
+📧 Contact: Check social media links
+💻 Built with: HTML, CSS, JavaScript
+🎨 Design: Custom responsive design with parallax
+
+Thanks for visiting! 😊
+`);
+</script>
+</body>
+</html>
